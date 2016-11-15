@@ -29,8 +29,11 @@ $editable = isset($editable) ? $editable : 'false';
 $calID = isset($calID) ? $calID : 'DocCalendar';
 
 $Modal = isset($Modal) ? $Modal : '0';
-$ModalTpl = isset($ModalTpl) ? $ModalTpl : '
-<div id="fullCalModal" class="modal fade">
+$ModalTpl = isset($ModalTpl) ? $ModalTpl : '';
+
+if($ModalTpl == ''){
+
+$BSModalTpl = '<div id="fullCalModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -47,6 +50,11 @@ $ModalTpl = isset($ModalTpl) ? $ModalTpl : '
         </div>
     </div>
 ';
+}
+
+else {
+	$BSModalTpl = $modx->getChunk(''.$ModalTpl.'');
+	}
 $customModalparams = isset($customModalparams) ? $customModalparams : '';
 
 $ListSnippet = isset($ListSnippet) ? $ListSnippet : 'Ditto';
@@ -55,7 +63,7 @@ $parents = isset($parents) ? $parents : '2';
 $dateFormat = isset($dateFormat) ? $dateFormat : '%Y-%m-%dT%H:%M:%S';// dont change it
 $depth = isset($depth) ? $depth : '2';
 $hideFolders = isset($hideFolders) ? $hideFolders : '0';
-$tpl = isset($tpl) ? $tpl : 'FullCalendar-Tpl';
+$tpl = isset($tpl) ? $tpl : 'DocCalendar-Tpl';
 $filter = isset($filter) ? $filter : '';
 if ($ListSnippet == DocLister) {
 $params['tvList'] = $tvList;
@@ -78,7 +86,7 @@ $DittoCalendarList = $modx->runSnippet(''.$ListSnippet.'', $params);
 
 $caloutput .='<div id="'.$calID.'"></div>';
 if($Modal == "1"){
-$caloutput .=''.$ModalTpl.'';
+$caloutput .=''.$BSModalTpl.'';
 }
 
 if($LoadAssets == "1"){
