@@ -2,13 +2,14 @@
  * DocCalendar
  *
  * Documents Calendar for Ditto and Doclister
+ * @version   1RC
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  *
  * @category	snippet
  * @internal	@modx_category DocCalendar
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  */
-
+if(!defined('MODX_BASE_PATH')){die('What are you doing? Get out of here!');}
 $jQuery = isset($jQuery) ? $jQuery : '1';
 $LoadAssets = isset($LoadAssets) ? $LoadAssets : '1';
 $locale = isset($locale) ? $locale : 'eng';
@@ -79,6 +80,7 @@ $params['sortDir'] = 'DESC';
 $params['tpl'] = $tpl;
 $params['total'] = $total;
 $params['hideFolders'] = '1';
+$params['showInMenuOnly'] = '1';
 // run Ditto Snippet
 $DittoCalendarList = $modx->runSnippet(''.$ListSnippet.'', $params);
 
