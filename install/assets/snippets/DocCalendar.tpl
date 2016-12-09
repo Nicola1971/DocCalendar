@@ -12,7 +12,7 @@
 if(!defined('MODX_BASE_PATH')){die('What are you doing? Get out of here!');}
 $jQuery = isset($jQuery) ? $jQuery : '1';
 $LoadAssets = isset($LoadAssets) ? $LoadAssets : '1';
-$locale = isset($locale) ? $locale : 'eng';
+$locale = isset($locale) ? $locale : 'en-gb';
 $views = isset($views) ? $views : 'agendaDay,agendaWeek,month'; //agendaDay,listDay,agendaWeek,listWeek,month
 $defaultView = isset($defaultView) ? $defaultView : 'month';
 $headerButtons = isset($headerButtons) ? $headerButtons : 'prev,next'; //prev,next today
