@@ -2,7 +2,7 @@
  * DocCalendar
  *
  * Documents Calendar for Ditto and Doclister
- * @version   1RC
+ * @version   1.1RC
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  *
  * @category	snippet
@@ -12,12 +12,22 @@
 if(!defined('MODX_BASE_PATH')){die('What are you doing? Get out of here!');}
 $jQuery = isset($jQuery) ? $jQuery : '1';
 $LoadAssets = isset($LoadAssets) ? $LoadAssets : '1';
-$locale = isset($locale) ? $locale : 'en-gb';
-$views = isset($views) ? $views : 'agendaDay,agendaWeek,month'; //agendaDay,listDay,agendaWeek,listWeek,month
+
+$locale = isset($locale) ? $locale : 'en-gb'; // en, es, de, it, etc.
+
+$views = isset($views) ? $views : 'month,listMonth,listYear'; // basicDay, agendaDay, listDay, basicWeek, agendaWeek, listWeek, month, listMonth, listYear
+
 $defaultView = isset($defaultView) ? $defaultView : 'month';
 $headerButtons = isset($headerButtons) ? $headerButtons : 'prev,next'; //prev,next today
-$listDaytext = isset($listDaytext) ? $listDaytext : 'list Day';
-$listWeektext = isset($listWeektext) ? $listWeektext : 'list Week';
+$basicDaytext = isset($basicDaytext) ? $basicDaytext : 'Today';
+$agendaDaytext = isset($agendaDaytext) ? $agendaDaytext : 'Day Agenda';
+$listDaytext = isset($listDaytext) ? $listDaytext : 'Day List';
+$basicWeektext = isset($basicWeektext) ? $basicWeektext : 'Week';
+$agendaWeektext = isset($agendaWeektext) ? $agendaWeektext : 'Week Agenda';
+$listWeektext = isset($listWeektext) ? $listWeektext : 'Week List';
+$monthtext = isset($monthtext) ? $monthtext : 'Month';
+$listMonthtext = isset($listMonthtext) ? $listMonthtext : 'Month List';
+$listYeartext = isset($listYeartext) ? $listYeartext : 'Year List';
 
 $dow = isset($dow) ? $dow : '1, 2, 3, 4, 5, 6, 7'; // days of week. an array of zero-based day of week integers (0=Sunday)
 $startTime = isset($startTime) ? $startTime : '08:00'; // a start time (10am in this example)
@@ -29,8 +39,8 @@ $eventLimit = isset($eventLimit) ? $eventLimit : 'true';
 $editable = isset($editable) ? $editable : 'false';
 $calID = isset($calID) ? $calID : 'DocCalendar';
 
-$Modal = isset($Modal) ? $Modal : '0';
-$ModalTpl = isset($ModalTpl) ? $ModalTpl : '';
+$Modal = isset($Modal) ? $Modal : '1';
+$ModalTpl = isset($ModalTpl) ? $ModalTpl : 'Modal-DocCalendar';
 
 if($ModalTpl == ''){
 
@@ -80,7 +90,7 @@ $params['sortDir'] = 'DESC';
 $params['tpl'] = $tpl;
 $params['total'] = $total;
 $params['hideFolders'] = '1';
-$params['showInMenuOnly'] = '1';
+$params['showInMenuOnly'] = '0';
 // run Ditto Snippet
 $DittoCalendarList = $modx->runSnippet(''.$ListSnippet.'', $params);
 
@@ -126,8 +136,15 @@ $j(document).ready(function() {
 						// customize the button names,
 			// otherwise they\'d all just say list
 			views: {
+				basicDay: { buttonText: \''.$basicDaytext.'\' },
+				agendaDay: { buttonText: \''.$agendaDaytext.'\' },
 				listDay: { buttonText: \''.$listDaytext.'\' },
-				listWeek: { buttonText: \''.$listWeek.'\' }
+				basicWeek: { buttonText: \''.$basicWeektext.'\' },
+				agendaWeek: { buttonText: \''.$agendaWeektext.'\' },
+				listWeek: { buttonText: \''.$listWeektext.'\' },
+				month: { buttonText: \''.$monthtext.'\' },
+				listMonth: { buttonText: \''.$listMonthtext.'\' },
+				listYear: { buttonText: \''.$listYeartext.'\' }
 			},
 			defaultView: \''.$defaultView.'\',
         	minTime: \''.$minTime.'\',
