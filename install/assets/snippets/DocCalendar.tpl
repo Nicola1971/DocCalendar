@@ -2,7 +2,7 @@
  * DocCalendar
  *
  * Documents Calendar for Ditto and Doclister
- * @version   1.1RC
+ * @version   1.1RC2
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  *
  * @category	snippet
@@ -76,7 +76,7 @@ $depth = isset($depth) ? $depth : '2';
 $hideFolders = isset($hideFolders) ? $hideFolders : '0';
 $tpl = isset($tpl) ? $tpl : 'DocCalendar-Tpl';
 $filter = isset($filter) ? $filter : '';
-if ($ListSnippet == DocLister) {
+if ($ListSnippet == 'DocLister') {
 $params['tvList'] = $tvList;
 }
 // Ditto Snippet parameters
@@ -93,9 +93,6 @@ $params['hideFolders'] = '1';
 $params['showInMenuOnly'] = '0';
 // run Ditto Snippet
 $DittoCalendarList = $modx->runSnippet(''.$ListSnippet.'', $params);
-
-
-
 $caloutput .='<div id="'.$calID.'"></div>';
 if($Modal == "1"){
 $caloutput .=''.$BSModalTpl.'';
