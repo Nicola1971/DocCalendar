@@ -1,22 +1,21 @@
 /**
  * DocCalendar
  *
- * Documents Calendar for Ditto and Doclister
- * @version   1.1RC2
+ * Documents Calendar for Doclister
+ * @version   1.2
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  *
  * @category	snippet
  * @internal	@modx_category DocCalendar
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  */
+<?php
 if(!defined('MODX_BASE_PATH')){die('What are you doing? Get out of here!');}
 $jQuery = isset($jQuery) ? $jQuery : '1';
 $LoadAssets = isset($LoadAssets) ? $LoadAssets : '1';
 
 $locale = isset($locale) ? $locale : 'en-gb'; // en, es, de, it, etc.
-
 $views = isset($views) ? $views : 'month,listMonth,listYear'; // basicDay, agendaDay, listDay, basicWeek, agendaWeek, listWeek, month, listMonth, listYear
-
 $defaultView = isset($defaultView) ? $defaultView : 'month';
 $headerButtons = isset($headerButtons) ? $headerButtons : 'prev,next'; //prev,next today
 $basicDaytext = isset($basicDaytext) ? $basicDaytext : 'Today';
@@ -28,7 +27,6 @@ $listWeektext = isset($listWeektext) ? $listWeektext : 'Week List';
 $monthtext = isset($monthtext) ? $monthtext : 'Month';
 $listMonthtext = isset($listMonthtext) ? $listMonthtext : 'Month List';
 $listYeartext = isset($listYeartext) ? $listYeartext : 'Year List';
-
 $dow = isset($dow) ? $dow : '1, 2, 3, 4, 5, 6, 7'; // days of week. an array of zero-based day of week integers (0=Sunday)
 $startTime = isset($startTime) ? $startTime : '08:00'; // a start time (10am in this example)
 $endTime = isset($endTime) ? $endTime : '21:30';// an end time (6pm in this example)
@@ -38,12 +36,10 @@ $navLinks = isset($navLinks) ? $navLinks : 'false';
 $eventLimit = isset($eventLimit) ? $eventLimit : 'true';
 $editable = isset($editable) ? $editable : 'false';
 $calID = isset($calID) ? $calID : 'DocCalendar';
-
 $Modal = isset($Modal) ? $Modal : '1';
 $ModalTpl = isset($ModalTpl) ? $ModalTpl : 'Modal-DocCalendar';
 
 if($ModalTpl == ''){
-
 $BSModalTpl = '<div id="fullCalModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -67,42 +63,47 @@ else {
 	$BSModalTpl = $modx->getChunk(''.$ModalTpl.'');
 	}
 $customModalparams = isset($customModalparams) ? $customModalparams : '';
-
-$ListSnippet = isset($ListSnippet) ? $ListSnippet : 'Ditto';
-
-$parents = isset($parents) ? $parents : '2';
+$tpl = isset($tpl) ? $tpl : 'DocCalendar-Tpl';
+$parents = isset($parents) ? $parents : '';
+$display = isset($display) ? $display : '0';
+$summary = isset($summary) ? $summary : '';
+$tvList = isset($tvList) ? $tvList : '';
+$tvPrefix = isset($tvPrefix) ? $tvPrefix : '';
 $dateFormat = isset($dateFormat) ? $dateFormat : '%Y-%m-%dT%H:%M:%S';// dont change it
 $depth = isset($depth) ? $depth : '2';
-$hideFolders = isset($hideFolders) ? $hideFolders : '0';
-$tpl = isset($tpl) ? $tpl : 'DocCalendar-Tpl';
-$filter = isset($filter) ? $filter : '';
-if ($ListSnippet == 'DocLister') {
-$params['tvList'] = $tvList;
-}
-// Ditto Snippet parameters
-$params['debug'] = '0';
-$params['paginate'] = '0';
+$debug = isset($debug) ? $debug : '0';
+$filters = isset($filters) ? $filters : '';
+$showParent = isset($showParent) ? $showParent : '';
+$showNoPublish = isset($showNoPublish) ? $showNoPublish : '';
+$addWhereList = isset($addWhereList) ? $addWhereList : '';
+// DL params
 $params['parents'] = $parents;
+$params['display'] = $display;
+$params['tvList'] = $tvList;
+$params['tvPrefix'] = $tvPrefix;
+$params['summary'] = $summary;
 $params['dateFormat'] = $dateFormat;
 $params['depth'] = $depth;
+$params['debug'] = $debug;
+$params['filters'] = $filters;
 $params['sortBy'] = 'createdon';
 $params['sortDir'] = 'DESC';
 $params['tpl'] = $tpl;
 $params['total'] = $total;
-$params['hideFolders'] = '1';
-$params['showInMenuOnly'] = '0';
-// run Ditto Snippet
-$DittoCalendarList = $modx->runSnippet(''.$ListSnippet.'', $params);
+$params['showParent'] = $showParent;
+$params['showNoPublish'] = $showNoPublish;
+$params['addWhereList'] = $addWhereList;
+$params['paginate'] = '0';
+// run Doclister Snippet
+$DLCalendarList = $modx->runSnippet('DocLister', $params);
 $caloutput .='<div id="'.$calID.'"></div>';
 if($Modal == "1"){
 $caloutput .=''.$BSModalTpl.'';
 }
-
 if($LoadAssets == "1"){
 $cssoutput='
 <link rel="stylesheet" href="assets/snippets/DocCalendar/fullcalendar/fullcalendar.css" />';
 }
-
 if($LoadAssets == "1"){
 if($jQuery == "1"){
 $scriptoutput .='
@@ -166,17 +167,13 @@ $j(document).ready(function() {
 } //end modal		
 		
 $scriptoutput .='events: [
-				'.$DittoCalendarList.'
+				'.$DLCalendarList.'
 			],
 		});
 		
 	});
-
 </script>';
-
-
 $modx->regClientCss( $cssoutput );
 $modx->regClientScript( $scriptoutput );
-
 $output = $caloutput;
 return $output;
