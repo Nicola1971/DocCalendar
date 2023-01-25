@@ -9,6 +9,15 @@ DocCalendar is based on FullCalendar, a cool opensource javascript event calenda
 
 # Updates
 
+## 1.2
+
+* dropped out Ditto support
+* more Doclister params
+
+## 1.1 RC2
+
+* Last release with Ditto support
+
 ## 1.1 RC
 
 * [#2](https://github.com/Nicola1971/DocCalendar/issues/2) New views options (by [risingisland](https://github.com/risingisland))
