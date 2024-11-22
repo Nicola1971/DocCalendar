@@ -10,6 +10,6 @@
  * @internal    @input_options 
  * @internal    @input_default 
  * @internal	@output_widget date
- * @internal	@output_widget_params &format=%Y-%m-%dT%H:%M:%S&default=Yes
+ * @internal	@output_widget_params &format=%d %b %Y %H:%M:%S&default=Yes
  * @internal    @template_assignments *
  */
