@@ -2,13 +2,14 @@
  * DocCalendar
  *
  * Documents Calendar for Doclister
- * @version   1.2
+ * @version   1.3
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  *
  * @category	snippet
  * @internal	@modx_category DocCalendar
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  */
+<?php
 <?php
 if(!defined('MODX_BASE_PATH')){die('What are you doing? Get out of here!');}
 $jQuery = isset($jQuery) ? $jQuery : '1';
@@ -69,19 +70,22 @@ $display = isset($display) ? $display : '0';
 $summary = isset($summary) ? $summary : '';
 $tvList = isset($tvList) ? $tvList : '';
 $tvPrefix = isset($tvPrefix) ? $tvPrefix : '';
-$dateFormat = isset($dateFormat) ? $dateFormat : '%Y-%m-%dT%H:%M:%S';// dont change it
+$dateSource = isset($dateSource) ? $dateSource : 'pub_date';
+$dateFormat = isset($dateFormat) ? $dateFormat : '%d %b %Y %H:%M:%S'; //dont change it
 $depth = isset($depth) ? $depth : '2';
 $debug = isset($debug) ? $debug : '0';
 $filters = isset($filters) ? $filters : '';
-$showParent = isset($showParent) ? $showParent : '';
+$showParent = isset($showParent) ? $showParent : '0';
 $showNoPublish = isset($showNoPublish) ? $showNoPublish : '';
 $addWhereList = isset($addWhereList) ? $addWhereList : '';
 // DL params
 $params['parents'] = $parents;
 $params['display'] = $display;
 $params['tvList'] = $tvList;
+$params['renderTV'] = $renderTV;
 $params['tvPrefix'] = $tvPrefix;
 $params['summary'] = $summary;
+$params['dateSource'] = $dateSource;
 $params['dateFormat'] = $dateFormat;
 $params['depth'] = $depth;
 $params['debug'] = $debug;
