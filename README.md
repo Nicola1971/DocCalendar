@@ -7,6 +7,13 @@ Simple and versatile Calendar snippet for displaying events calendar of DocListe
 
 # Updates
 
+## 1.3
+
+* Snippet bugfix for latest Evo 1.4x / 3.1x
+* more Doclister params
+* updated moment.js
+* updated event tpl
+
 ## 1.2
 
 * dropped out Ditto support
