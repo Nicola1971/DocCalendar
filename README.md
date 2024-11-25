@@ -7,6 +7,13 @@ Simple and versatile Calendar snippet for displaying events calendar of DocListe
 
 # Updates
 
+## 1.4
+
+* Fix calendar height on mobile
+* various assets updates
+* added Event-End-Date tv
+* fixed issues with Bootstrap modal
+
 ## 1.3
 
 * Snippet bugfix for latest Evo 1.4x / 3.1x
