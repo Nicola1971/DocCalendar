@@ -1,7 +1,7 @@
 /**
  * Event-Start-Date
  *
- * Event date to be displayed on calendar
+ * Event Start date
  *
  * @category	tv
  * @internal	@modx_category DocCalendar
@@ -13,5 +13,5 @@
  * @internal	@output_widget_params &format=Y-m-d\TH:i:s\Z&default=Yes
  * @internal    @lock_tv 0
  * @internal    @template_assignments 
- * @internal    @overwrite false
+ * @internal    @overwrite true
  */

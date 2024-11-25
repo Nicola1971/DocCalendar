@@ -105,7 +105,7 @@ $caloutput .=''.$BSModalTpl.'';
 }
 if($LoadAssets == "1"){
 $cssoutput='
-<link rel="stylesheet" href="assets/snippets/DocCalendar/fullcalendar/fullcalendar.css" />';
+<link rel="stylesheet" href="assets/snippets/DocCalendar/fullcalendar/fullcalendar.min.css" />';
 }
 if($LoadAssets == "1"){
 if($jQuery == "1"){
@@ -122,6 +122,7 @@ $scriptoutput .='
 var $j = jQuery.noConflict();
 $j(document).ready(function() {
 	$j(\'#'.$calID.'\').fullCalendar({
+        	height: 600,
 			header: {
 				left: \''.$headerButtons.'\',
 				center: \'title\',
