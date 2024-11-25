@@ -9,7 +9,7 @@
  * @internal	@modx_category DocCalendar
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  */
-<?php
+
 if(!defined('MODX_BASE_PATH')){die('What are you doing? Get out of here!');}
 $jQuery = isset($jQuery) ? $jQuery : '1';
 $LoadAssets = isset($LoadAssets) ? $LoadAssets : '1';
