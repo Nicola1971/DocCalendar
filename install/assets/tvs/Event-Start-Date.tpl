@@ -5,7 +5,7 @@
  *
  * @category	tv
  * @internal	@modx_category DocCalendar
- * @internal    @caption <i class="fa fa-calendar-o"></i> Calendar Event Date
+ * @internal    @caption Calendar Event Date
  * @internal    @input_type date
  * @internal    @input_options 
  * @internal    @input_default 
