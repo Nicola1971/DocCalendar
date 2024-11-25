@@ -2,7 +2,7 @@
  * DocCalendar
  *
  * Documents Calendar for Doclister
- * @version   1.3
+ * @version   1.4
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  *
  * @category	snippet
