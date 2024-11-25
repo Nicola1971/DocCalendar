@@ -2,7 +2,7 @@
  * DocCalendar
  *
  * Documents Calendar snippet based on Doclister
- * @version   1.4
+ * @version   1.4.1
  * @author      Author: Nicola Lambathakis http://www.tattoocms.it/
  *
  * @category	snippet
@@ -119,9 +119,8 @@ $scriptoutput .='
 }
 $scriptoutput .='
 <script>
-var $j = jQuery.noConflict();
-$j(document).ready(function() {
-	$j(\'#'.$calID.'\').fullCalendar({
+$(document).ready(function() {
+ 	$(\'#'.$calID.'\').fullCalendar({
         	height: 600,
 			header: {
 				left: \''.$headerButtons.'\',
