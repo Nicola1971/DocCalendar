@@ -36,7 +36,7 @@ $navLinks = isset($navLinks) ? $navLinks : 'false';
 $eventLimit = isset($eventLimit) ? $eventLimit : 'true';
 $editable = isset($editable) ? $editable : 'false';
 $calID = isset($calID) ? $calID : 'DocCalendar';
-$Modal = isset($Modal) ? $Modal : '1';
+$Modal = isset($Modal) ? $Modal : '0';
 $ModalTpl = isset($ModalTpl) ? $ModalTpl : 'Modal-DocCalendar';
 
 if($ModalTpl == ''){
