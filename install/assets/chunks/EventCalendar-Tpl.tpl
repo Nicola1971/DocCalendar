@@ -13,5 +13,5 @@
 					sourceurl: '[~[*id*]~]',
 					url: '[~[+id+]~]',
 					start: '[+Event-Start-Date+]',
-                    end: ''
+                    end: '[+Event-End-Date+]'
 },
